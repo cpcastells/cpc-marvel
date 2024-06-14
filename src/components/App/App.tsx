@@ -1,5 +1,7 @@
+import Layout from "../Layout/Layout";
+
 const App = (): React.ReactElement => {
-  return <h1>My Marvel</h1>;
+  return <Layout />;
 };
 
 export default App;
