@@ -9,13 +9,16 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:dev": "vitest"
+    "test:dev": "vitest",
+    "prepare": "husky install"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
     "@testing-library/dom": "^10.1.0",
     "@testing-library/jest-dom": "^6.4.6",
     "@testing-library/react": "^16.0.0",
@@ -28,6 +31,7 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
+    "husky": "^8.0.0",
     "jest-environment-jsdom": "^29.7.0",
     "typescript": "^5.2.2",
     "vite": "^5.2.0",
