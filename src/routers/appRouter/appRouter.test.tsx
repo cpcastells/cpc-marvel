@@ -4,11 +4,11 @@ import appRouter from "./appRouter";
 
 describe("Given an appRouter", () => {
   describe("When a user enters the app", () => {
-    test("Then should see the heading 'My Marvel' ", () => {
-      const heading = "My Marvel";
+    test("Then it should show the Marvel logo ", () => {
+      const altText = "Marvel logo";
 
       render(<RouterProvider router={appRouter} />);
-      const headingElement = screen.getByRole("heading", { name: heading });
+      const headingElement = screen.getByAltText(altText);
 
       expect(headingElement).toBeInTheDocument();
     });
