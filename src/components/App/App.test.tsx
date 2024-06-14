@@ -1,15 +1,16 @@
 import { render, screen } from "@testing-library/react";
 import App from "./App";
+import wrapWithRouter from "../../utils/testUtils";
 
 describe("Given an App component", () => {
   describe("When it is rendered", () => {
-    test("Then 'My Marvel' should be in the document", () => {
-      const heading = "My Marvel";
+    test("Then it should show the Marvel logo", () => {
+      const altText = "Marvel logo";
 
-      render(<App />);
-      const headingElement = screen.getByRole("heading", { name: heading });
+      render(wrapWithRouter(<App />));
+      const logo = screen.getByAltText(altText);
 
-      expect(headingElement).toBeInTheDocument();
+      expect(logo).toBeInTheDocument();
     });
   });
 });
