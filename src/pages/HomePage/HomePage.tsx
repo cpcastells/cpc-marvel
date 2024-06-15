@@ -7,20 +7,29 @@ import useCharacters from "../../hooks/useCharacters/useCharacters";
 
 const HomePage = (): React.ReactElement => {
   const { getCharacters } = useCharacters();
+  const [searchQuery, setSearchQuery] = useState("");
   const [characters, setCharacters] = useState<Character[]>([]);
 
   useEffect(() => {
     (async () => {
-      const response = await getCharacters("");
+      const response = await getCharacters(searchQuery);
       if (!response) return;
 
       setCharacters(response.data.results);
     })();
-  }, [getCharacters]);
+  }, [getCharacters, searchQuery]);
+
+  const handleSearch = async (searchQuery: string) => {
+    setSearchQuery(searchQuery);
+  };
 
   return (
     <HomePageStyled>
-      <SearchBar />
+      <SearchBar
+        onChange={handleSearch}
+        query={searchQuery}
+        totalCharacters={characters.length}
+      />
       <CharactersList characters={characters} />
     </HomePageStyled>
   );
