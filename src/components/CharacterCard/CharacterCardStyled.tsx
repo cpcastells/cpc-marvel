@@ -3,13 +3,12 @@ import toRem from "../../styles/utils";
 
 const CharacterCardStyled = styled.article`
   position: relative;
-  width: 100%;
-  max-width: ${toRem(172.5)};
+  width: ${toRem(172.5)};
   transition: transform 0.5s;
   background-color: black;
 
   @media (min-width: 1512px) {
-    max-width: ${toRem(188.57)};
+    width: ${toRem(188.57)};
   }
 
   &:hover .card__name-container:before {
@@ -22,9 +21,16 @@ const CharacterCardStyled = styled.article`
   }
 
   .card {
+    &__image-container {
+      width: 100%;
+      height: ${toRem(189.97)};
+    }
+
     &__image {
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
+      object-position: left;
     }
 
     &__name-container {
