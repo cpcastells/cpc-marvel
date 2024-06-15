@@ -1,11 +1,14 @@
-import { useState } from "react";
 import SearchBarStyled from "./SearchBarStyled";
 
-const SearchBar = () => {
-  const [query, setQuery] = useState("");
+interface SearchBarProps {
+  onChange: (searchQuery: string) => void;
+  query: string;
+  totalCharacters: number;
+}
 
+const SearchBar = ({ onChange, query, totalCharacters }: SearchBarProps) => {
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(event.target.value);
+    onChange(event.target.value);
   };
 
   return (
@@ -30,7 +33,7 @@ const SearchBar = () => {
           className="search-bar__input"
         />
       </form>
-      <span className="search-bar__results">0 results</span>
+      <span className="search-bar__results">{totalCharacters} results</span>
     </SearchBarStyled>
   );
 };
