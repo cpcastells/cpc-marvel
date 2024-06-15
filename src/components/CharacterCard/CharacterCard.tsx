@@ -1,3 +1,4 @@
+import { useFavorites } from "../../hooks/useFavorites/useFavorites";
 import { Character } from "../../types";
 import CharacterCardStyled from "./CharacterCardStyled";
 
@@ -5,24 +6,24 @@ interface CharacterCardProps {
   character: Character;
 }
 
-const CharacterCard = ({
-  character: { name, thumbnail },
-}: CharacterCardProps) => {
+const CharacterCard = ({ character }: CharacterCardProps) => {
+  const { addFavorite } = useFavorites();
+
   return (
     <CharacterCardStyled>
       <img
-        src={`${thumbnail.path}.${thumbnail.extension}`}
-        alt={`Image of ${name}`}
+        src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+        alt={`Image of ${character.name}`}
         className="card__image"
         width={173}
         height={173}
       />
       <div className="card__name-container">
-        <h3 className="card__name">{name}</h3>
+        <h3 className="card__name">{character.name}</h3>
         <button
           className="card__favorite-icon"
           aria-label="Add to favorites"
-          onClick={() => {}}
+          onClick={() => addFavorite(character)}
         >
           <svg
             width="12"
