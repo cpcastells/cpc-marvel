@@ -1,7 +1,17 @@
 import { Link } from "react-router-dom";
 import HeaderStyled from "./HeaderStyled";
+import { useEffect, useState } from "react";
+import { useFavorites } from "../../hooks/useFavorites/useFavorites";
 
 const Header = (): React.ReactElement => {
+  const { favorites } = useFavorites();
+  const [totalFavorites, setTotalFavorites] = useState<number>(0);
+
+  useEffect(() => {
+    const favoritesCount = favorites.length;
+    setTotalFavorites(favoritesCount);
+  }, [favorites]);
+
   return (
     <HeaderStyled>
       <Link to="/" aria-label="Link to home">
@@ -21,7 +31,7 @@ const Header = (): React.ReactElement => {
           width={24}
           height={24}
         />
-        <span className="header__count">2</span>
+        <span className="header__count">{totalFavorites}</span>
       </Link>
     </HeaderStyled>
   );
