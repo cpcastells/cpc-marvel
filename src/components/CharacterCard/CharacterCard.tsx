@@ -14,13 +14,15 @@ const CharacterCard = ({ character }: CharacterCardProps) => {
 
   return (
     <CharacterCardStyled>
-      <img
-        src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
-        alt={`Image of ${character.name}`}
-        className="card__image"
-        width={173}
-        height={173}
-      />
+      <div className="card__image-container">
+        <img
+          src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+          alt={`Image of ${character.name}`}
+          className="card__image"
+          width={173}
+          height={173}
+        />
+      </div>
       <div className="card__name-container">
         <h3 className="card__name">{character.name}</h3>
         {isFavorite ? (
