@@ -15,3 +15,16 @@ export interface Character {
     }[];
   };
 }
+
+export interface GetCharactersAPIResponse {
+  code: number;
+  status: string;
+  data: {
+    offset: number;
+    limit: number;
+    total: number;
+    count: number;
+    results: Character[];
+  };
+  etag: string;
+}
