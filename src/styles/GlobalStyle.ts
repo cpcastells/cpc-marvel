@@ -59,6 +59,7 @@ export const GlobalStyle = createGlobalStyle`
 
   input {
     border: none;
+    padding: 0;
     background: none;
     font: inherit;
   }
