@@ -1,20 +1,40 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import HeaderStyled from "./HeaderStyled";
 import { useEffect, useState } from "react";
 import { useFavorites } from "../../hooks/useFavorites/useFavorites";
 
 const Header = (): React.ReactElement => {
-  const { favorites } = useFavorites();
+  const { favorites, showFavoritesView, hideFavoritesView } = useFavorites();
   const [totalFavorites, setTotalFavorites] = useState<number>(0);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const favoritesCount = favorites.length;
     setTotalFavorites(favoritesCount);
   }, [favorites]);
 
+  const handleShowFavorites = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+  ) => {
+    e.preventDefault();
+    showFavoritesView();
+    if (location.pathname !== "/home") {
+      navigate("/");
+    }
+  };
+
+  const handleGoHome = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault();
+    hideFavoritesView();
+    if (location.pathname !== "/home") {
+      navigate("/home");
+    }
+  };
+
   return (
     <HeaderStyled>
-      <Link to="/" aria-label="Link to home">
+      <Link to="/home" aria-label="Link to home" onClick={handleGoHome}>
         <img
           src="/images/marvel_logo.png"
           alt="Marvel logo"
@@ -23,7 +43,12 @@ const Header = (): React.ReactElement => {
           height={40}
         />
       </Link>
-      <Link to="/" aria-label="Show favorites" className="header__favorites">
+      <Link
+        to="/home"
+        aria-label="Show favorites"
+        className="header__favorites"
+        onClick={handleShowFavorites}
+      >
         <img
           src="/images/icons/heart_icon.svg"
           alt="Favorites icon"

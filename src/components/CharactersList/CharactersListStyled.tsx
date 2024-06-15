@@ -5,7 +5,7 @@ const CharactersListStyled = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: ${toRem(16)};
-  justify-content: center;
+  justify-content: flex-start;
 
   .character-list {
     &__item {

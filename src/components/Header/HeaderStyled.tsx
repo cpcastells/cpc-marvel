@@ -15,6 +15,7 @@ const HeaderStyled = styled.header`
 
     &__favorites {
       display: flex;
+      gap: ${toRem(8)};
       align-items: center;
       position: relative;
       cursor: pointer;
@@ -27,7 +28,6 @@ const HeaderStyled = styled.header`
 
     &__count {
       color: white;
-      margin-left: ${toRem(5)};
       font-size: ${toRem(18)};
       top: ${toRem(-8)};
       right: ${toRem(-12)};

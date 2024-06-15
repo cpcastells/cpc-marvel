@@ -3,8 +3,11 @@ import { Character } from "../../types";
 
 interface FavoritesContextProps {
   favorites: Character[];
+  isFavoritesView: boolean;
   addFavorite: (character: Character) => void;
   removeFavorite: (character: Character) => void;
+  showFavoritesView: () => void;
+  hideFavoritesView: () => void;
 }
 
 export const FavoritesContext = createContext<
@@ -16,6 +19,7 @@ export const FavoritesProvider = ({
   preloadedFavorites = [],
 }: PropsWithChildren<{ preloadedFavorites?: Character[] }>) => {
   const [favorites, setFavorites] = useState<Character[]>(preloadedFavorites);
+  const [isFavoritesView, setIsFavoritesView] = useState(false);
 
   const addFavorite = (character: Character) => {
     setFavorites((prev: Character[]) => [...prev, character]);
@@ -27,9 +31,24 @@ export const FavoritesProvider = ({
     );
   };
 
+  const showFavoritesView = () => {
+    setIsFavoritesView(true);
+  };
+
+  const hideFavoritesView = () => {
+    setIsFavoritesView(false);
+  };
+
   return (
     <FavoritesContext.Provider
-      value={{ favorites, addFavorite, removeFavorite }}
+      value={{
+        favorites,
+        isFavoritesView,
+        addFavorite,
+        removeFavorite,
+        showFavoritesView,
+        hideFavoritesView,
+      }}
     >
       {children}
     </FavoritesContext.Provider>
