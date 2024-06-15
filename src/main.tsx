@@ -6,12 +6,15 @@ import { theme } from "./styles/theme/theme.ts";
 import { GlobalStyle } from "./styles/GlobalStyle.ts";
 import { RouterProvider } from "react-router-dom";
 import appRouter from "./routers/appRouter/appRouter.tsx";
+import { FavoritesProvider } from "./contexts/FavoriteContext/FavoritesContext.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <RouterProvider router={appRouter} />
+      <FavoritesProvider>
+        <RouterProvider router={appRouter} />
+      </FavoritesProvider>
     </ThemeProvider>
   </React.StrictMode>,
 );
