@@ -15,7 +15,11 @@ const HomePage = (): React.ReactElement => {
   useEffect(() => {
     (async () => {
       if (isFavoritesView) {
-        setCharacters(favorites);
+        setCharacters(
+          favorites.filter((character) =>
+            character.name.toLowerCase().includes(searchQuery.toLowerCase()),
+          ),
+        );
         return;
       }
 
