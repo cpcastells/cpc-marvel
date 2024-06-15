@@ -1,5 +1,5 @@
-import { render, screen } from "@testing-library/react";
-import wrapWithRouter from "../../utils/testUtils";
+import { screen } from "@testing-library/react";
+import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
 import HomePage from "./HomePage";
 
 describe("Given a HomePage page", () => {
@@ -7,7 +7,7 @@ describe("Given a HomePage page", () => {
     test("Then it should show the search bar input", () => {
       const labelText = "Search a character";
 
-      render(wrapWithRouter(<HomePage />));
+      renderWithProviders(wrapWithRouter(<HomePage />));
       const input = screen.getByRole("textbox", { name: labelText });
 
       expect(input).toBeInTheDocument();
