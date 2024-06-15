@@ -1,12 +1,15 @@
-import CharacterList from "../../components/CharacterList/CharacterList";
+import CharactersList from "../../components/CharactersList/CharactersList";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import { Character } from "../../types";
 import HomePageStyled from "./HomePageStyled";
 
 const HomePage = (): React.ReactElement => {
+  const characters: Character[] = [];
+
   return (
     <HomePageStyled>
       <SearchBar />
-      <CharacterList />
+      <CharactersList characters={characters} />
     </HomePageStyled>
   );
 };
