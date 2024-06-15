@@ -4,6 +4,8 @@ import { createMemoryRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { theme } from "../styles/theme/theme";
 import { render } from "@testing-library/react";
+import { Character } from "../types";
+import { FavoritesProvider } from "../contexts/FavoriteContext/FavoritesContext";
 
 export const wrapWithRouter = (ui: React.ReactElement) => {
   const routes = [{ path: "/", element: ui }];
@@ -13,10 +15,29 @@ export const wrapWithRouter = (ui: React.ReactElement) => {
   return <RouterProvider router={router} />;
 };
 
-export const renderWithProviders = (ui: React.ReactElement) => {
+export const renderWithProviders = (
+  ui: React.ReactElement,
+  { preloadedFavorites = [] }: { preloadedFavorites?: Character[] } = {},
+) => {
   const Wrapper = ({ children }: PropsWithChildren): React.ReactElement => {
-    return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+    return (
+      <ThemeProvider theme={theme}>
+        <FavoritesProvider preloadedFavorites={preloadedFavorites}>
+          {children}
+        </FavoritesProvider>
+      </ThemeProvider>
+    );
   };
 
   render(ui, { wrapper: Wrapper });
+};
+
+export const wrapper = ({
+  children,
+}: PropsWithChildren): React.ReactElement => {
+  return (
+    <FavoritesProvider>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    </FavoritesProvider>
+  );
 };
