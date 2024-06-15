@@ -17,7 +17,7 @@ export const wrapWithRouter = (ui: React.ReactElement) => {
 
 export const renderWithProviders = (
   ui: React.ReactElement,
-  preloadedFavorites?: Character[],
+  { preloadedFavorites = [] }: { preloadedFavorites?: Character[] } = {},
 ) => {
   const Wrapper = ({ children }: PropsWithChildren): React.ReactElement => {
     return (
@@ -30,4 +30,14 @@ export const renderWithProviders = (
   };
 
   render(ui, { wrapper: Wrapper });
+};
+
+export const wrapper = ({
+  children,
+}: PropsWithChildren): React.ReactElement => {
+  return (
+    <FavoritesProvider>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    </FavoritesProvider>
+  );
 };
