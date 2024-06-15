@@ -6,6 +6,7 @@ const SearchBarStyled = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  padding: ${toRem(12)} 0;
 
   .search-bar {
     &__container {
