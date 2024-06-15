@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import HeaderStyled from "./HeaderStyled";
 
-const Header = () => {
+const Header = (): React.ReactElement => {
   return (
     <HeaderStyled>
       <Link to="/" aria-label="Link to home">
@@ -15,9 +15,11 @@ const Header = () => {
       </Link>
       <Link to="/" aria-label="Show favorites" className="header__favorites">
         <img
-          src="/heart_icon.svg"
+          src="/images/icons/heart_icon.svg"
           alt="Favorites icon"
           className="header__icon"
+          width={24}
+          height={24}
         />
         <span className="header__count">2</span>
       </Link>
