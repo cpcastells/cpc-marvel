@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GetCharactersAPIResponse } from "../../types";
+import { Character, GetCharactersAPIResponse } from "../../types";
 import { useCallback } from "react";
 
 const apiURL = import.meta.env.VITE_API_URL;
@@ -23,7 +23,21 @@ const useCharacters = () => {
     [],
   );
 
-  return { getCharacters };
+  const getCharacterById = useCallback(
+    async (characterId: string): Promise<Character | null> => {
+      try {
+        const url = `${apiURL}/public/characters/${characterId}?apikey=${apiKey}`;
+
+        const response = await axios.get<GetCharactersAPIResponse>(url);
+        return response.data.data.results[0];
+      } catch (error) {
+        return null;
+      }
+    },
+    [],
+  );
+
+  return { getCharacters, getCharacterById };
 };
 
 export default useCharacters;

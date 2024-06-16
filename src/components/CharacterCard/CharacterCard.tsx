@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useFavorites } from "../../hooks/useFavorites/useFavorites";
 import { Character } from "../../types";
 import SolidFavoriteIcon from "../icons/SolidFavoriteIcon";
@@ -15,13 +16,15 @@ const CharacterCard = ({ character }: CharacterCardProps) => {
   return (
     <CharacterCardStyled>
       <div className="card__image-container">
-        <img
-          src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
-          alt={`Image of ${character.name}`}
-          className="card__image"
-          width={173}
-          height={173}
-        />
+        <Link to={`/character/${character.id}`} className="card__link">
+          <img
+            src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+            alt={`Image of ${character.name}`}
+            className="card__image"
+            width={173}
+            height={173}
+          />
+        </Link>
       </div>
       <div className="card__name-container">
         <h3 className="card__name">{character.name}</h3>
