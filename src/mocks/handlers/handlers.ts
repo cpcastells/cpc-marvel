@@ -42,4 +42,26 @@ export const handlers = [
       etag: "1234567893",
     });
   }),
+
+  http.get(`${apiURL}/public/characters/:characterId`, (req) => {
+    const { characterId } = req.params;
+    if (characterId === "1234") {
+      return HttpResponse.json({
+        code: 200,
+        status: "Ok",
+        data: {
+          results: [
+            createMockCharacter({
+              name: "Spiderman",
+              description: "A hero with spider-like abilities.",
+              thumbnail: {
+                path: "path/to/spiderman",
+                extension: "jpg",
+              },
+            }),
+          ],
+        },
+      });
+    }
+  }),
 ];

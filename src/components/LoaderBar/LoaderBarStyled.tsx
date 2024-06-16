@@ -9,6 +9,7 @@ const LoaderBarStyled = styled.div<LoaderBarProps>`
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 1;
   transition: opacity 0.4s ease-in-out;
   height: ${toRem(5.38)};
   background-color: ${(props) => props.theme.colors.marvelRed};
