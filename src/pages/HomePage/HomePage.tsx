@@ -14,22 +14,25 @@ const HomePage = (): React.ReactElement => {
   const [characters, setCharacters] = useState<Character[]>([]);
 
   useEffect(() => {
-    (async () => {
-      if (isFavoritesView) {
-        setCharacters(
-          favorites.filter((character) =>
-            character.name.toLowerCase().includes(searchQuery.toLowerCase()),
-          ),
-        );
-        return;
-      }
+    if (isFavoritesView) {
+      setCharacters(
+        favorites.filter((character) =>
+          character.name.toLowerCase().includes(searchQuery.toLowerCase()),
+        ),
+      );
+    }
+  }, [favorites, isFavoritesView, searchQuery]);
 
-      const response = await getCharacters(searchQuery);
-      if (!response) return;
-
-      setCharacters(response.data.results);
-    })();
-  }, [favorites, getCharacters, isFavoritesView, searchQuery]);
+  useEffect(() => {
+    if (!isFavoritesView) {
+      (async () => {
+        const response = await getCharacters(searchQuery);
+        if (response) {
+          setCharacters(response.data.results);
+        }
+      })();
+    }
+  }, [getCharacters, isFavoritesView, searchQuery]);
 
   const handleSearch = async (searchQuery: string) => {
     setSearchQuery(searchQuery);
