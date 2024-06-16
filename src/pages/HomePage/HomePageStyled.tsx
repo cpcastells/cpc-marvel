@@ -6,6 +6,7 @@ interface HomePageStyledProps {
 }
 
 const HomePageStyled = styled.main<HomePageStyledProps>`
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: ${toRem(24)};
