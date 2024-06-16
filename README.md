@@ -187,7 +187,9 @@ npm run test:dev
   │   ├── components         # Reusable UI components
   │   ├── contexts           # React Context API files
   │   ├── hooks              # Custom React hooks
+  │   ├── mocks              # Mocks for testing
   │   ├── pages              # Application pages
+  │   ├── routers            # Routers managing the application routes
   │   ├── styles             # Styled-components styles
   │   └── utils              # Utility functions
   ├── .env                   # Environment variables
