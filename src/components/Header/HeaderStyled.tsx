@@ -2,6 +2,10 @@ import styled from "styled-components";
 import toRem from "../../styles/utils";
 
 const HeaderStyled = styled.header`
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 3;
   display: flex;
   justify-content: space-between;
   align-items: center;
