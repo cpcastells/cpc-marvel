@@ -2,6 +2,8 @@ import styled from "styled-components";
 import toRem from "../../styles/utils";
 
 const CharacterPageStyled = styled.main`
+  position: relative;
+
   .character-detail {
     &__header {
       width: 100%;

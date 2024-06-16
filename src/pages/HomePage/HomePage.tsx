@@ -5,9 +5,10 @@ import { Character } from "../../types";
 import HomePageStyled from "./HomePageStyled";
 import useCharacters from "../../hooks/useCharacters/useCharacters";
 import { useFavorites } from "../../hooks/useFavorites/useFavorites";
+import LoaderBar from "../../components/LoaderBar/LoaderBar";
 
 const HomePage = (): React.ReactElement => {
-  const { getCharacters } = useCharacters();
+  const { getCharacters, areCharactersLoading } = useCharacters();
   const { favorites, isFavoritesView } = useFavorites();
   const [searchQuery, setSearchQuery] = useState("");
   const [characters, setCharacters] = useState<Character[]>([]);
@@ -36,6 +37,7 @@ const HomePage = (): React.ReactElement => {
 
   return (
     <HomePageStyled $isFavoritesView={isFavoritesView}>
+      <LoaderBar isLoading={areCharactersLoading} />
       <h2 className="favorites-title">favorites</h2>
       <SearchBar
         onChange={handleSearch}
