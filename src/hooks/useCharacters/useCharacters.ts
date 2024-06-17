@@ -1,6 +1,12 @@
 import axios from "axios";
-import { Character, GetCharactersAPIResponse } from "../../types";
+import {
+  Character,
+  GetCharactersAPIResponse,
+  GetComicAPIResponse,
+  Comic,
+} from "../../types";
 import { useCallback, useState } from "react";
+import { secureImageUrl } from "../../utils/utils";
 
 const apiURL = import.meta.env.VITE_API_URL;
 const apiKey = import.meta.env.VITE_API_PUBLIC_KEY;
@@ -48,9 +54,42 @@ const useCharacters = () => {
     [],
   );
 
+  const getComicsByCharacter = useCallback(
+    async (comics: { resourceURI: string }[]): Promise<Comic[]> => {
+      try {
+        const comicsPromises = comics.slice(0, 20).map((comic) => {
+          const comicUrl = `${comic.resourceURI}?apikey=${apiKey}`;
+          return axios
+            .get<GetComicAPIResponse>(comicUrl)
+            .then((response) => response.data.data.results[0]);
+        });
+
+        const comicsData = await Promise.all(comicsPromises);
+        return comicsData.map((comic) => {
+          const onSaleDate = comic.dates.find(
+            (date) => date.type === "onsaleDate",
+          );
+          return {
+            comicId: comic.id,
+            title: comic.title,
+            thumbnail: secureImageUrl(
+              `${comic.thumbnail.path}/portrait_fantastic.${comic.thumbnail.extension}`,
+            ),
+            onSaleDate: new Date(onSaleDate!.date).getFullYear().toString(),
+          };
+        });
+      } catch (error) {
+        console.error(error);
+        return [];
+      }
+    },
+    [],
+  );
+
   return {
     getCharacters,
     getCharacterById,
+    getComicsByCharacter,
     isCharacterByIdLoading,
     areCharactersLoading,
   };
