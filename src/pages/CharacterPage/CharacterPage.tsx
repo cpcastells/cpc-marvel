@@ -7,6 +7,7 @@ import { Character } from "../../types";
 import SolidFavoriteIcon from "../../components/icons/SolidFavoriteIcon";
 import UnselectedFavoriteIcon from "../../components/icons/UnselectedFavoriteIcon";
 import LoaderBar from "../../components/LoaderBar/LoaderBar";
+import { secureImageUrl } from "../../utils/utils";
 
 const CharacterPage = () => {
   const { characterId } = useParams();
@@ -36,7 +37,7 @@ const CharacterPage = () => {
           <header className="character-detail__header">
             <div className="character-detail__header-content">
               <img
-                src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+                src={`${secureImageUrl(character.thumbnail.path)}.${character.thumbnail.extension}`}
                 alt={`Image of ${character.name}`}
                 className="character-detail__image"
               />
