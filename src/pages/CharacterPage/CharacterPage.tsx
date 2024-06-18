@@ -3,17 +3,20 @@ import { useParams } from "react-router-dom";
 import CharacterPageStyled from "./CharacterPageStyled";
 import { useFavorites } from "../../hooks/useFavorites/useFavorites";
 import useCharacters from "../../hooks/useCharacters/useCharacters";
-import { Character } from "../../types";
+import { Character, Comic } from "../../types";
 import SolidFavoriteIcon from "../../components/icons/SolidFavoriteIcon";
 import UnselectedFavoriteIcon from "../../components/icons/UnselectedFavoriteIcon";
 import LoaderBar from "../../components/LoaderBar/LoaderBar";
 import { secureImageUrl } from "../../utils/utils";
+import ComicsSlider from "../../components/ComicSlider/ComicSlider";
 
 const CharacterPage = () => {
   const { characterId } = useParams();
-  const { getCharacterById, isCharacterByIdLoading } = useCharacters();
-  const [character, setCharacter] = useState<Character | null>(null);
   const { favorites, addFavorite, removeFavorite } = useFavorites();
+  const { getCharacterById, getComicsByCharacter, isCharacterByIdLoading } =
+    useCharacters();
+  const [character, setCharacter] = useState<Character | null>(null);
+  const [comics, setComics] = useState<Comic[]>([]);
   const isFavorite = favorites.some((fav) => fav.id === Number(characterId!));
 
   useEffect(() => {
@@ -22,12 +25,17 @@ const CharacterPage = () => {
         return;
       }
       const fetchedCharacter = await getCharacterById(characterId);
+
       if (!fetchedCharacter) {
         return;
       }
       setCharacter(fetchedCharacter);
+      const fetchedComics = await getComicsByCharacter(
+        fetchedCharacter.comics.items,
+      );
+      setComics(fetchedComics);
     })();
-  }, [characterId, getCharacterById]);
+  }, [characterId, getCharacterById, getComicsByCharacter]);
 
   return (
     <CharacterPageStyled>
@@ -76,7 +84,7 @@ const CharacterPage = () => {
           </header>
           <section className="character-detail__comics">
             <h2>Comics</h2>
-            SLIDER
+            <ComicsSlider comics={comics} />
           </section>
         </article>
       )}
