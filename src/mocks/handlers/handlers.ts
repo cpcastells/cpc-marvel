@@ -59,6 +59,16 @@ export const handlers = [
                 path: "path/to/spiderman",
                 extension: "jpg",
               },
+              comics: {
+                available: 1,
+                returned: 1,
+                items: [
+                  {
+                    resourceURI: `${apiURL}/public/comics/1234`,
+                    name: "Comic 1",
+                  },
+                ],
+              },
             }),
           ],
         },
