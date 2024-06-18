@@ -208,10 +208,6 @@ npm run test:dev
 - **Responsive Design:** Mobile and desktop layouts.
 - **Favorite Management:** Users can add or remove characters from favorites, with persistence across views.
 
-#### Upcoming features
-
-- **Character Detail View:** Display a slider featuring the character's comics.
-
 ## Api Integration
 
 All data is fetched from the Marvel API (http://gateway.marvel.com/v1/). For detailed documentation, visit [Marvel API Documentation](https://developer.marvel.com/documentation/getting_started).
