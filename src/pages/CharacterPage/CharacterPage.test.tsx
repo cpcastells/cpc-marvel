@@ -35,10 +35,10 @@ describe("Given a CharacterPage page", () => {
 
       await act(async () => {
         renderWithProviders(
-          <MemoryRouter initialEntries={["/characters/1234"]}>
+          <MemoryRouter initialEntries={["/character/1234"]}>
             <Routes>
               <Route
-                path="/characters/:characterId"
+                path="/character/:characterId"
                 element={<CharacterPage />}
               />
             </Routes>
@@ -70,10 +70,10 @@ describe("Given a CharacterPage page", () => {
 
       await act(async () => {
         renderWithProviders(
-          <MemoryRouter initialEntries={["/characters/1234"]}>
+          <MemoryRouter initialEntries={["/character/1234"]}>
             <Routes>
               <Route
-                path="/characters/:characterId"
+                path="/character/:characterId"
                 element={<CharacterPage />}
               />
             </Routes>
