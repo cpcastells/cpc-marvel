@@ -1,4 +1,4 @@
-export const secureImageUrl = (url: string) => {
+export const secureUrl = (url: string) => {
   if (url.startsWith("http://")) {
     return url.replace("http://", "https://");
   }

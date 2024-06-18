@@ -4,7 +4,7 @@ import { Character } from "../../types";
 import SolidFavoriteIcon from "../icons/SolidFavoriteIcon";
 import UnselectedFavoriteIcon from "../icons/UnselectedFavoriteIcon";
 import CharacterCardStyled from "./CharacterCardStyled";
-import { secureImageUrl } from "../../utils/utils";
+import { secureUrl } from "../../utils/utils";
 
 interface CharacterCardProps {
   character: Character;
@@ -19,7 +19,7 @@ const CharacterCard = ({ character }: CharacterCardProps) => {
       <div className="card__image-container">
         <Link to={`/character/${character.id}`} className="card__link">
           <img
-            src={`${secureImageUrl(character.thumbnail.path)}.${character.thumbnail.extension}`}
+            src={`${secureUrl(character.thumbnail.path)}.${character.thumbnail.extension}`}
             alt={`Image of ${character.name}`}
             className="card__image"
             width={173}
