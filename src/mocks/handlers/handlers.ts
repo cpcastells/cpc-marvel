@@ -1,5 +1,6 @@
 import { http, HttpResponse } from "msw";
 import createMockCharacter from "../factories/characterFactory";
+import createMockComic from "../factories/comicFactory";
 
 const apiURL = import.meta.env.VITE_API_URL;
 
@@ -63,5 +64,31 @@ export const handlers = [
         },
       });
     }
+  }),
+
+  http.get(`${apiURL}/public/comics/:comicId`, (req) => {
+    const { comicId } = req.params;
+    return HttpResponse.json({
+      code: 200,
+      status: "Ok",
+      data: {
+        results: [
+          createMockComic({
+            id: Number(comicId),
+            title: `Comic ${comicId}`,
+            thumbnail: {
+              path: `path/to/comic${comicId}`,
+              extension: "jpg",
+            },
+            dates: [
+              {
+                type: "onsaleDate",
+                date: new Date(Number(comicId), 1, 1),
+              },
+            ],
+          }),
+        ],
+      },
+    });
   }),
 ];

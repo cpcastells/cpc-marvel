@@ -65,21 +65,22 @@ const useCharacters = () => {
         });
 
         const comicsData = await Promise.all(comicsPromises);
-        return comicsData.map((comic) => {
-          const onSaleDate = comic.dates.find(
-            (date) => date.type === "onsaleDate",
-          );
-          return {
-            comicId: comic.id,
-            title: comic.title,
-            thumbnail: secureImageUrl(
-              `${comic.thumbnail.path}/portrait_fantastic.${comic.thumbnail.extension}`,
-            ),
-            onSaleDate: new Date(onSaleDate!.date).getFullYear().toString(),
-          };
-        });
+        return comicsData
+          .map((comic) => {
+            const onSaleDate = comic.dates.find(
+              (date) => date.type === "onsaleDate",
+            );
+            return {
+              comicId: comic.id,
+              title: comic.title,
+              thumbnail: secureImageUrl(
+                `${comic.thumbnail.path}/portrait_fantastic.${comic.thumbnail.extension}`,
+              ),
+              onSaleDate: new Date(onSaleDate!.date).getFullYear().toString(),
+            };
+          })
+          .sort((a, b) => parseInt(a.onSaleDate) - parseInt(b.onSaleDate));
       } catch (error) {
-        console.error(error);
         return [];
       }
     },
