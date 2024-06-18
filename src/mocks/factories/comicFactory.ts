@@ -1,7 +1,7 @@
 import { faker } from "@faker-js/faker";
-import { comicAPIStructure } from "../../types";
+import { Comic, comicAPIStructure } from "../../types";
 
-const createMockComic = (
+const createMockAPIComic = (
   overrides?: Partial<comicAPIStructure>,
 ): comicAPIStructure => {
   return {
@@ -27,4 +27,14 @@ const createMockComic = (
   };
 };
 
-export default createMockComic;
+export const createMockComic = (overrides?: Partial<Comic>): Comic => {
+  return {
+    comicId: faker.number.int(),
+    title: faker.lorem.words(3),
+    thumbnail: faker.internet.url(),
+    onSaleDate: faker.date.past().getFullYear().toString(),
+    ...overrides,
+  };
+};
+
+export default createMockAPIComic;
