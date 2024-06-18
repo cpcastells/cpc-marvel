@@ -13,7 +13,7 @@ describe("Given a useDebounce hook", () => {
     });
 
     test("should debounce and only change value when delay time has passed", async () => {
-      let value = 0;
+      let value = "0";
       const { result, rerender } = renderHook(
         ({ value }) => useDebounce(value, 1000),
         {
@@ -21,28 +21,28 @@ describe("Given a useDebounce hook", () => {
         },
       );
 
-      expect(result.current).toBe(0);
+      expect(result.current).toBe("0");
 
-      const incrementAndPassTime = (increment: number, time: number) => {
-        value += increment;
+      const incrementAndPassTime = async (increment: number, time: number) => {
+        value = (parseInt(value) + increment).toString();
         rerender({ value });
-        vi.advanceTimersByTimeAsync(time);
+        await vi.advanceTimersByTimeAsync(time);
       };
 
       await incrementAndPassTime(1, 100);
-      expect(result.current).toBe(0);
+      expect(result.current).toBe("0");
 
       await incrementAndPassTime(1, 500);
-      expect(result.current).toBe(0);
+      expect(result.current).toBe("0");
 
       await incrementAndPassTime(1, 999);
-      expect(result.current).toBe(0);
+      expect(result.current).toBe("0");
 
       await act(async () => {
         await vi.advanceTimersByTime(1);
       });
 
-      expect(result.current).toBe(3);
+      expect(result.current).toBe("3");
     });
   });
 });
