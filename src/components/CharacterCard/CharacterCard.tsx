@@ -20,11 +20,11 @@ const CharacterCard = ({ character, loading }: CharacterCardProps) => {
       <div className="card__image-container">
         <Link to={`/character/${character.id}`} className="card__link">
           <img
-            src={`${secureUrl(character.thumbnail.path)}.${character.thumbnail.extension}`}
+            src={`${secureUrl(character.thumbnail.path)}/standard_xlarge.${character.thumbnail.extension}`}
             alt={`Image of ${character.name}`}
             className="card__image"
             width={173}
-            height={173}
+            height={190}
             loading={loading}
           />
         </Link>
