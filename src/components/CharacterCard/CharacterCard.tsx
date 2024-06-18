@@ -8,9 +8,10 @@ import { secureUrl } from "../../utils/utils";
 
 interface CharacterCardProps {
   character: Character;
+  loading: "eager" | "lazy";
 }
 
-const CharacterCard = ({ character }: CharacterCardProps) => {
+const CharacterCard = ({ character, loading }: CharacterCardProps) => {
   const { addFavorite, removeFavorite, favorites } = useFavorites();
   const isFavorite = favorites.some((favorite) => favorite.id === character.id);
 
@@ -24,7 +25,7 @@ const CharacterCard = ({ character }: CharacterCardProps) => {
             className="card__image"
             width={173}
             height={173}
-            loading="lazy"
+            loading={loading}
           />
         </Link>
       </div>
