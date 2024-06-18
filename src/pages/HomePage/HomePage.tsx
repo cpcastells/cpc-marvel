@@ -6,12 +6,14 @@ import HomePageStyled from "./HomePageStyled";
 import useCharacters from "../../hooks/useCharacters/useCharacters";
 import { useFavorites } from "../../hooks/useFavorites/useFavorites";
 import LoaderBar from "../../components/LoaderBar/LoaderBar";
+import useDebounce from "../../hooks/useDebounce/useDebounce";
 
 const HomePage = (): React.ReactElement => {
   const { getCharacters, areCharactersLoading } = useCharacters();
   const { favorites, isFavoritesView } = useFavorites();
-  const [searchQuery, setSearchQuery] = useState("");
   const [characters, setCharacters] = useState<Character[]>([]);
+  const [inputQuery, setInputQuery] = useState("");
+  const searchQuery = useDebounce(inputQuery, 500);
 
   useEffect(() => {
     if (isFavoritesView) {
@@ -35,7 +37,7 @@ const HomePage = (): React.ReactElement => {
   }, [getCharacters, isFavoritesView, searchQuery]);
 
   const handleSearch = async (searchQuery: string) => {
-    setSearchQuery(searchQuery);
+    setInputQuery(searchQuery);
   };
 
   return (
@@ -44,7 +46,7 @@ const HomePage = (): React.ReactElement => {
       <h2 className="favorites-title">favorites</h2>
       <SearchBar
         onChange={handleSearch}
-        query={searchQuery}
+        query={inputQuery}
         totalCharacters={characters.length}
       />
       <CharactersList characters={characters} />
