@@ -1,6 +1,6 @@
 import { http, HttpResponse } from "msw";
 import createMockCharacter from "../factories/characterFactory";
-import createMockComic from "../factories/comicFactory";
+import createMockAPIComic from "../factories/comicFactory";
 
 const apiURL = import.meta.env.VITE_API_URL;
 
@@ -73,7 +73,7 @@ export const handlers = [
       status: "Ok",
       data: {
         results: [
-          createMockComic({
+          createMockAPIComic({
             id: Number(comicId),
             title: `Comic ${comicId}`,
             thumbnail: {

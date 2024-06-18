@@ -3,6 +3,7 @@ import toRem from "../../styles/utils";
 
 const CharacterPageStyled = styled.main`
   position: relative;
+  color: black;
 
   .character-detail {
     &__header {
@@ -18,7 +19,7 @@ const CharacterPageStyled = styled.main`
       flex-direction: column;
       align-items: center;
 
-      @media (min-width: ${toRem(768)}) {
+      @media (min-width: ${toRem(834)}) {
         flex-direction: row;
         align-items: flex-start;
       }
@@ -30,7 +31,7 @@ const CharacterPageStyled = styled.main`
       object-fit: cover;
       object-position: left;
 
-      @media (min-width: ${toRem(768)}) {
+      @media (min-width: ${toRem(834)}) {
         width: ${toRem(278)};
         height: ${toRem(278)};
       }
@@ -49,7 +50,7 @@ const CharacterPageStyled = styled.main`
       gap: ${toRem(24)};
       padding: ${toRem(24)} ${toRem(16)} ${toRem(48)} ${toRem(16)};
 
-      @media (min-width: ${toRem(768)}) {
+      @media (min-width: ${toRem(834)}) {
         align-items: flex-start;
         padding: ${toRem(48)};
       }
@@ -65,7 +66,7 @@ const CharacterPageStyled = styled.main`
       align-items: center;
       width: 100%;
       max-width: ${toRem(361)};
-      @media (min-width: ${toRem(768)}) {
+      @media (min-width: ${toRem(834)}) {
         max-width: 100%;
       }
     }
@@ -120,14 +121,27 @@ const CharacterPageStyled = styled.main`
     }
 
     &__comics {
-      padding: ${toRem(24)};
+      display: flex;
+      flex-direction: column;
+      gap: ${toRem(24)};
+      padding: ${toRem(48)} 0;
       max-width: ${toRem(960)};
       margin: 0 auto;
       background-color: white;
 
       h2 {
         font-size: ${toRem(24)};
-        margin-bottom: ${toRem(20)};
+        font-weight: 700;
+        padding: 0 ${toRem(16)};
+
+        @media (min-width: ${toRem(834)}) {
+          padding: 0 ${toRem(48)};
+        }
+
+        @media (min-width: ${toRem(1512)}) {
+          font-size: ${toRem(32)};
+          padding: 0;
+        }
       }
     }
   }
