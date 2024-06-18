@@ -6,7 +6,7 @@ import {
   Comic,
 } from "../../types";
 import { useCallback, useState } from "react";
-import { secureImageUrl } from "../../utils/utils";
+import { secureUrl } from "../../utils/utils";
 
 const apiURL = import.meta.env.VITE_API_URL;
 const apiKey = import.meta.env.VITE_API_PUBLIC_KEY;
@@ -58,7 +58,7 @@ const useCharacters = () => {
     async (comics: { resourceURI: string }[]): Promise<Comic[]> => {
       try {
         const comicsPromises = comics.slice(0, 20).map((comic) => {
-          const comicUrl = `${comic.resourceURI}?apikey=${apiKey}`;
+          const comicUrl = secureUrl(`${comic.resourceURI}?apikey=${apiKey}`);
           return axios
             .get<GetComicAPIResponse>(comicUrl)
             .then((response) => response.data.data.results[0]);
@@ -73,7 +73,7 @@ const useCharacters = () => {
             return {
               comicId: comic.id,
               title: comic.title,
-              thumbnail: secureImageUrl(
+              thumbnail: secureUrl(
                 `${comic.thumbnail.path}/portrait_fantastic.${comic.thumbnail.extension}`,
               ),
               onSaleDate: new Date(onSaleDate!.date).getFullYear().toString(),
