@@ -45,7 +45,7 @@ const CharacterPage = () => {
           <header className="character-detail__header">
             <div className="character-detail__header-content">
               <img
-                src={`${secureUrl(character.thumbnail.path)}.${character.thumbnail.extension}`}
+                src={`${secureUrl(character.thumbnail.path)}/detail.${character.thumbnail.extension}`}
                 alt={`Image of ${character.name}`}
                 className="character-detail__image"
               />

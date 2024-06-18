@@ -9,7 +9,9 @@ describe("Given a CharacterCard component", () => {
   describe("When it receives a character with the name 'Spiderman'", () => {
     test("Then it should display the character's name", () => {
       renderWithProviders(
-        wrapWithRouter(<CharacterCard character={characterMock} />),
+        wrapWithRouter(
+          <CharacterCard character={characterMock} loading="eager" />,
+        ),
       );
       const characterName = screen.getByRole("heading", {
         name: characterMock.name,
@@ -20,7 +22,9 @@ describe("Given a CharacterCard component", () => {
 
     test("Then it should display the character's image", () => {
       renderWithProviders(
-        wrapWithRouter(<CharacterCard character={characterMock} />),
+        wrapWithRouter(
+          <CharacterCard character={characterMock} loading="eager" />,
+        ),
       );
       const characterImage = screen.getByAltText(
         `Image of ${characterMock.name}`,
@@ -33,7 +37,9 @@ describe("Given a CharacterCard component", () => {
       const buttonDescription = "Add to favorites";
 
       renderWithProviders(
-        wrapWithRouter(<CharacterCard character={characterMock} />),
+        wrapWithRouter(
+          <CharacterCard character={characterMock} loading="eager" />,
+        ),
       );
       const favoriteButton = screen.getByRole("button", {
         name: buttonDescription,
@@ -48,7 +54,9 @@ describe("Given a CharacterCard component", () => {
       const buttonDescription = "Add to favorites";
 
       renderWithProviders(
-        wrapWithRouter(<CharacterCard character={characterMock} />),
+        wrapWithRouter(
+          <CharacterCard character={characterMock} loading="eager" />,
+        ),
       );
       const favoriteButton = screen.getByRole("button", {
         name: buttonDescription,
@@ -63,7 +71,9 @@ describe("Given a CharacterCard component", () => {
       const buttonDescription = "Remove from favorites";
 
       renderWithProviders(
-        wrapWithRouter(<CharacterCard character={characterMock} />),
+        wrapWithRouter(
+          <CharacterCard character={characterMock} loading="eager" />,
+        ),
         { preloadedFavorites: [characterMock] },
       );
       const favoriteButton = screen.getByRole("button", {

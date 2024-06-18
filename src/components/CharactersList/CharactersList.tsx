@@ -9,9 +9,12 @@ interface CharactersListProps {
 const CharactersList = ({ characters }: CharactersListProps) => {
   return (
     <CharactersListStyled>
-      {characters.map((character) => (
+      {characters.map((character, index) => (
         <li key={character.id}>
-          <CharacterCard character={character} />
+          <CharacterCard
+            character={character}
+            loading={index <= 10 ? "eager" : "lazy"}
+          />
         </li>
       ))}
     </CharactersListStyled>
