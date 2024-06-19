@@ -218,7 +218,7 @@ All data is fetched from the Marvel API (http://gateway.marvel.com/v1/). For det
   <h3 style="font-size: 1.5rem; border-bottom: 2px solid #DDD; width: 100%;">Demo</h3>
 </div>
 
-<p align="center">Check the demo <a href="https://marvelverse-cpc.netlify.app/home"><br><img src="https://media.discordapp.net/attachments/1114204200885301331/1252017731113320448/marvel.png?ex=6670afe0&is=666f5e60&hm=4705d454d7193fe133635f2a2a9daf7cfa968756b6f3ffdecd62142b9110138b&=&format=webp&quality=lossless" alt="Logo" width="120"></a></p>
+<p align="center">Check the demo <a href="https://marvelverse-cpc.netlify.app/home"><br><img src="https://media.discordapp.net/attachments/1114204200885301331/1252017731113320448/marvel.png?ex=667352e0&is=66720160&hm=6eb97abee4ed207c530f72f20ccba08d25f5ff9416c5e26be05252238b1351b6&=&format=webp&quality=lossless&width=2144&height=862" alt="Logo" width="120"></a></p>
 
 <a id="contact"></a>
 
