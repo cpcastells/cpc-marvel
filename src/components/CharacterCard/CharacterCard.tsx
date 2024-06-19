@@ -37,7 +37,7 @@ const CharacterCard = ({ character, loading }: CharacterCardProps) => {
             aria-label="Remove from favorites"
             onClick={() => removeFavorite(character)}
           >
-            <SolidFavoriteIcon height={24} width={22} className="heart-icon" />
+            <SolidFavoriteIcon height={11} width={12} className="heart-icon" />
           </button>
         ) : (
           <button
@@ -45,7 +45,7 @@ const CharacterCard = ({ character, loading }: CharacterCardProps) => {
             aria-label="Add to favorites"
             onClick={() => addFavorite(character)}
           >
-            <UnselectedFavoriteIcon height={24} width={22} />
+            <UnselectedFavoriteIcon height={11} width={12} />
           </button>
         )}
       </div>
