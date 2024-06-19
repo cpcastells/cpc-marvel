@@ -14,10 +14,10 @@ describe("Given a Headertest component", () => {
     });
 
     test("Then it should show the favorites icon", () => {
-      const altText = "Favorites icon";
+      const labelText = "Favorites icon";
 
       renderWithProviders(wrapWithRouter(<Header />));
-      const icon = screen.getByAltText(altText);
+      const icon = screen.getByLabelText(labelText);
 
       expect(icon).toBeInTheDocument();
     });

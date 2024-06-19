@@ -30,6 +30,9 @@ const CharacterPageStyled = styled.main`
       height: ${toRem(397.89)};
       object-fit: cover;
       object-position: left;
+      transition:
+        width 0.5s ease,
+        height 0.5s ease;
 
       @media (min-width: ${toRem(834)}) {
         width: ${toRem(278)};
@@ -132,7 +135,9 @@ const CharacterPageStyled = styled.main`
       h2 {
         font-size: ${toRem(24)};
         font-weight: 700;
+        text-transform: uppercase;
         padding: 0 ${toRem(16)};
+        transition: font-size 0.5s ease;
 
         @media (min-width: ${toRem(834)}) {
           padding: 0 ${toRem(48)};

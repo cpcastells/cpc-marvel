@@ -62,6 +62,9 @@ const CharacterCardStyled = styled.article`
     &__name {
       margin: 0;
       font-size: ${toRem(16)};
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
       transition: color 0.5s;
     }
 

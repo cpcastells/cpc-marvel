@@ -2,6 +2,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import HeaderStyled from "./HeaderStyled";
 import { useEffect, useState } from "react";
 import { useFavorites } from "../../hooks/useFavorites/useFavorites";
+import SolidFavoriteIcon from "../icons/SolidFavoriteIcon";
 
 const Header = (): React.ReactElement => {
   const { favorites, showFavoritesView, hideFavoritesView } = useFavorites();
@@ -49,13 +50,7 @@ const Header = (): React.ReactElement => {
         className="header__favorites"
         onClick={handleShowFavorites}
       >
-        <img
-          src="/images/icons/heart_icon.svg"
-          alt="Favorites icon"
-          className="header__icon"
-          width={24}
-          height={24}
-        />
+        <SolidFavoriteIcon width={24} height={22} className="header__icon" />
         <span className="header__count">{totalFavorites}</span>
       </Link>
     </HeaderStyled>

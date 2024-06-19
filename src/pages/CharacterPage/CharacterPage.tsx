@@ -64,13 +64,13 @@ const CharacterPage = () => {
                     }}
                   >
                     <SolidFavoriteIcon
-                      height={24}
-                      width={22}
+                      height={22}
+                      width={24}
                       className={`heart-icon ${isFavorite ? "heart-icon--active" : ""}`}
                     />
                     <UnselectedFavoriteIcon
-                      height={24}
-                      width={22}
+                      height={22}
+                      width={24}
                       className={`heart-icon ${!isFavorite ? "heart-icon--active" : ""}`}
                     />
                   </button>
