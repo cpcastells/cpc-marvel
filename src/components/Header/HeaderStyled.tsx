@@ -9,8 +9,13 @@ const HeaderStyled = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: ${toRem(16)} ${toRem(48)};
+  padding: ${toRem(16)};
   background-color: black;
+  transition: padding 0.5s ease;
+
+  @media (min-width: ${toRem(834)}) {
+    padding: ${toRem(16)} ${toRem(48)};
+  }
 
   .header {
     &__logo {
