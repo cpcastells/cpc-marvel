@@ -21,7 +21,7 @@ const Header = (): React.ReactElement => {
     e.preventDefault();
     showFavoritesView();
     if (location.pathname !== "/home") {
-      navigate("/");
+      navigate("/home");
     }
   };
 
