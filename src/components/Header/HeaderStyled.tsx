@@ -33,6 +33,7 @@ const HeaderStyled = styled.header`
     &__icon {
       width: ${toRem(24)};
       height: ${toRem(24)};
+      fill: ${({ theme }) => theme.colors.marvelRed};
     }
 
     &__count {
