@@ -38,10 +38,10 @@ MarvelVerse is a dynamic web application that lets users explore various Marvel 
 <br><br>
 
 <div align="center">
-  <img src="https://media.discordapp.net/attachments/1114204200885301331/1252010941285929040/marvelverse-cpc.netlify.app_home_2.png?ex=6670a98d&is=666f580d&hm=26e9a726b641f5722813dd99a6e2f66ecd84f0d0f78406d3845bb15695469705&=&format=webp&quality=lossless&width=514&height=901" alt="Login page" height="300">
-  <img src="https://media.discordapp.net/attachments/1114204200885301331/1252010940946448445/marvelverse-cpc.netlify.app_home_3.png?ex=6670a98d&is=666f580d&hm=0104d9214f22538a63f37af201046780cfabef83ff377d0212a4f0b1a02877e4&=&format=webp&quality=lossless&width=514&height=901" alt="List page" height="300">
-  <img src="https://media.discordapp.net/attachments/1114204200885301331/1252010940589936722/marvelverse-cpc.netlify.app_home_4.png?ex=6670a98d&is=666f580d&hm=51c28b7606b8821865e7fbb7927f5ca731bd47a04d692ce5ab7473ffbb0f99cd&=&format=webp&quality=lossless&width=514&height=901" alt="Detail page" height="300">
-  <img src="https://media.discordapp.net/attachments/1114204200885301331/1252010941651091638/marvelverse-cpc.netlify.app_home_5.png?ex=6670a98d&is=666f580d&hm=add529eaf4e9467da77b51fddd439c1c0c882bd1bf2e536eb1dbefd3eb8f53f9&=&format=webp&quality=lossless&width=514&height=901" alt="Add page" height="300">
+  <img src="https://res.cloudinary.com/dgijz1fel/image/upload/v1719521467/marvelverse-cpc.netlify.app_home_2_pywsbn.png" alt="Login page" height="300">
+  <img src="https://res.cloudinary.com/dgijz1fel/image/upload/v1719521467/marvelverse-cpc.netlify.app_home_4_qtyxxd.png" alt="List page" height="300">
+  <img src="https://res.cloudinary.com/dgijz1fel/image/upload/v1719521467/marvelverse-cpc.netlify.app_home_3_jyu6cl.png" alt="Detail page" height="300">
+  <img src="https://res.cloudinary.com/dgijz1fel/image/upload/v1719521467/marvelverse-cpc.netlify.app_home_5_dwlcaa.png" alt="Add page" height="300">
 </div>
 
 <br>
@@ -218,7 +218,7 @@ All data is fetched from the Marvel API (http://gateway.marvel.com/v1/). For det
   <h3 style="font-size: 1.5rem; border-bottom: 2px solid #DDD; width: 100%;">Demo</h3>
 </div>
 
-<p align="center">Check the demo <a href="https://marvelverse-cpc.netlify.app/home"><br><img src="https://media.discordapp.net/attachments/1114204200885301331/1252017731113320448/marvel.png?ex=667352e0&is=66720160&hm=6eb97abee4ed207c530f72f20ccba08d25f5ff9416c5e26be05252238b1351b6&=&format=webp&quality=lossless&width=2144&height=862" alt="Logo" width="120"></a></p>
+<p align="center">Check the demo <a href="https://marvelverse-cpc.netlify.app/home"><br><img src="https://res.cloudinary.com/dgijz1fel/image/upload/v1719520957/marvel_btfhtr.png" alt="Logo" width="120"></a></p>
 
 <a id="contact"></a>
 
